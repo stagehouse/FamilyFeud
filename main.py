@@ -1,3 +1,10 @@
+'''
+Beautiful it ain't. But I made it in an afternoon so pbbbbththtttthh.
+
+Hit the button, Max.
+'''
+
+
 from machine import Pin
 from uosc.client import Client
 import time
