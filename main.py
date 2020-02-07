@@ -15,6 +15,7 @@ button1 = Pin(34, Pin.IN)
 button2 = Pin(35, Pin.IN)
 
 console = Client('192.168.1.162', 53000)
+#ESP32-GATEWAY board rev C and above require the clock_mode parameter in network setup
 nic = network.LAN(mdc = Pin(23), mdio = Pin(18), phy_type = network.PHY_LAN8720, phy_addr = 0, clock_mode = network.ETH_CLOCK_GPIO17_OUT)
 
 def networkConnect():
@@ -22,6 +23,8 @@ def networkConnect():
         nic.active(True)
         nic.ifconfig(('192.168.1.254', '255.255.255.0','192.168.1.1', '192.168.1.1'))
     print(nic.ifconfig())
+
+#DRY, eh? Hah!
 
 def player1():
     console.send('/cue/1/start')
